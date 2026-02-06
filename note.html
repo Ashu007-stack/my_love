@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>My Note For You ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     body {
@@ -40,8 +40,14 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -49,8 +55,9 @@
 <body>
 
   <div class="note">
-    <h1>Hey titli❤️</h1>
-    <p>Hey my cutie pie,
+    <h1>Hey titli ❤️</h1>
+    <p>
+Hey my cutie pie,
 
 I don’t believe in perfection,
 but when you smile at me, everything feels perfectly right.
@@ -82,28 +89,19 @@ it means staying, even on the hard days. ❤️
     </p>
   </div>
 
-  <!-- ✅ Keep audio outside note box -->
-  <audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg" />
+  <!-- 🎵 Background Music -->
+  <audio id="bgMusic" autoplay muted loop>
+    <source src="music.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     const bgMusic = document.getElementById("bgMusic");
     bgMusic.volume = 0.4;
 
-    // Try autoplay on load
-    window.addEventListener("load", () => {
-      const playPromise = bgMusic.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Autoplay blocked, will start on first click
-        });
-      }
-    });
-
-    // ✅ Fallback: start music on first user click anywhere
+    // Unmute & play on first user interaction (browser-safe)
     document.addEventListener("click", () => {
-      if (bgMusic.paused) bgMusic.play();
+      bgMusic.muted = false;
+      bgMusic.play();
     }, { once: true });
   </script>
 
