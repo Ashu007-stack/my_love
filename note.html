@@ -80,7 +80,19 @@ they are about understanding each other better.
 Loving you doesn’t mean being perfect,
 it means staying, even on the hard days. ❤️
     </p>
+    <audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<script>
+window.addEventListener("load", () => {
+  const bgMusic = document.getElementById("bgMusic");
+  bgMusic.volume = 0.4;
+  bgMusic.play();
+});
+</script>
+
   </div>
 
 </body>
 </html>
+
