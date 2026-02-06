@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>My Note For You ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
     body {
       margin: 0;
       padding: 0;
       background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-      font-family: 'Georgia', serif;
+      font-family: Georgia, serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -18,7 +18,7 @@
     }
 
     .note {
-      background:  #F4C2C2;
+      background: #F4C2C2;
       padding: 40px;
       border-radius: 20px;
       max-width: 700px;
@@ -45,12 +45,12 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="note">
     <h1>Hey titli❤️</h1>
-    <p>
-Hey my cutie pie,
+    <p>Hey my cutie pie,
 
 I don’t believe in perfection,
 but when you smile at me, everything feels perfectly right.
@@ -80,19 +80,32 @@ they are about understanding each other better.
 Loving you doesn’t mean being perfect,
 it means staying, even on the hard days. ❤️
     </p>
-    <audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-<script>
-window.addEventListener("load", () => {
-  const bgMusic = document.getElementById("bgMusic");
-  bgMusic.volume = 0.4;
-  bgMusic.play();
-});
-</script>
-
   </div>
+
+  <!-- ✅ Keep audio outside note box -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const bgMusic = document.getElementById("bgMusic");
+    bgMusic.volume = 0.4;
+
+    // Try autoplay on load
+    window.addEventListener("load", () => {
+      const playPromise = bgMusic.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay blocked, will start on first click
+        });
+      }
+    });
+
+    // ✅ Fallback: start music on first user click anywhere
+    document.addEventListener("click", () => {
+      if (bgMusic.paused) bgMusic.play();
+    }, { once: true });
+  </script>
 
 </body>
 </html>
-
