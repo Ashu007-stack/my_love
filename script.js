@@ -40,11 +40,11 @@ noBtn.addEventListener("click", () => {
 });
 
 // Auto play music on first interaction
-document.body.addEventListener("click", () => {
-  if (bgMusic.paused) {
-    bgMusic.play();
-  }
-});
+// document.body.addEventListener("click", () => {
+//   if (bgMusic.paused) {
+//     bgMusic.play();
+//   }
+// });
 
 // Music toggle button
 const musicBtn = document.getElementById("musicBtn");
@@ -63,4 +63,5 @@ musicBtn.addEventListener("click", () => {
     console.log(isPlaying)
   }
 });
+
 
