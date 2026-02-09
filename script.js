@@ -55,9 +55,12 @@ musicBtn.addEventListener("click", () => {
     bgMusic.play();
     musicBtn.textContent = " Music OFF";
     isPlaying = true;
+    console.log(isPlaying)
   } else {
     bgMusic.pause();
     musicBtn.textContent = " Tap for Song";
     isPlaying = false;
+    console.log(isPlaying)
   }
 });
+
